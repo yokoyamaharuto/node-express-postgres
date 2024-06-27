@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+exports.router = router;
 const knex = require('../db/knex');
 
 router.get('/', function (req, res, next) {
@@ -33,15 +34,6 @@ router.post('/', function (req, res, next) {
         title: 'ToDo App',
       });
     });
-});
-  const todo = req.body.add;
-  connection.query(
-    `insert into tasks (user_id, content) values (1, '${todo}');`,
-    (error, results) => {
-      console.log(error);
-      res.redirect('/');
-    }
-  );
 });
 
 module.exports = router;
