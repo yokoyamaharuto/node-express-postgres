@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-exports.router = router;
 const knex = require('../db/knex');
 
 router.get('/', function (req, res, next) {
@@ -35,5 +34,7 @@ router.post('/', function (req, res, next) {
       });
     });
 });
+
+router.use('/signup', require('./signup'));
 
 module.exports = router;
